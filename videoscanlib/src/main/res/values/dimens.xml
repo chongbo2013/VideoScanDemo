@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_padding">8.0dip</dimen>
+    <dimen name="actionbarTitleTextSize">16sp</dimen>
+    <dimen name="item_margin">3dp</dimen>
+</resources>
