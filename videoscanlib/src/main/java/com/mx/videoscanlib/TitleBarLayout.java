@@ -3,6 +3,7 @@ package com.mx.videoscanlib;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,9 +13,10 @@ import android.widget.TextView;
  * Created by xff on 2016/11/29.
  */
 
-public class TitleBarLayout extends RelativeLayout implements View.OnClickListener{
+public class TitleBarLayout extends FrameLayout implements View.OnClickListener{
 
-    private ImageView left_btn,right_btn;
+    private ImageView left_btn;
+    private TextView right_btn;
     private IVideoPhotoInterface mIVideoPhotoInterface;
     private TextView title_tv;
     public TitleBarLayout(Context context) {
@@ -41,7 +43,7 @@ public class TitleBarLayout extends RelativeLayout implements View.OnClickListen
     protected void onFinishInflate() {
         super.onFinishInflate();
         left_btn=(ImageView)findViewById(R.id.left_btn);
-        right_btn=(ImageView)findViewById(R.id.right_btn);
+        right_btn=(TextView)findViewById(R.id.right_btn);
         title_tv=(TextView)findViewById(R.id.title_tv);
         left_btn.setOnClickListener(this);
         right_btn.setOnClickListener(this);
@@ -80,10 +82,7 @@ public class TitleBarLayout extends RelativeLayout implements View.OnClickListen
             left_btn.setImageResource(resource);
     }
 
-    public void setRightDrawableResource(int resource){
-        if(right_btn!=null)
-            right_btn.setImageResource(resource);
-    }
+
 
     public void setText(String text){
         if(title_tv!=null)
@@ -98,5 +97,28 @@ public class TitleBarLayout extends RelativeLayout implements View.OnClickListen
     public void setTextColor(int color){
         if(title_tv!=null)
             title_tv.setTextColor(color);
+    }
+
+    public void setShowLeft(boolean show){
+        if(left_btn!=null)
+            left_btn.setVisibility(show?View.VISIBLE: View.INVISIBLE);
+    }
+    public void setShowRight(boolean show){
+        if(right_btn!=null)
+            right_btn.setVisibility(show?View.VISIBLE: View.INVISIBLE);
+    }
+    boolean isSelectModel=false;
+    public void setSelectModel(boolean bool) {
+        this.isSelectModel=bool;
+        requestLayout();
+    }
+
+    //更新选中
+    public void updateLeftText(int size) {
+        if(isSelectModel){
+            right_btn.setText(size==0?"下一步":"下一步"+"("+size+")");
+        }else{
+            right_btn.setText("下一步");
+        }
     }
 }

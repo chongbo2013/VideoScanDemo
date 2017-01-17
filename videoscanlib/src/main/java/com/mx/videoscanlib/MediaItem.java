@@ -5,45 +5,12 @@ import java.io.File;
 /**
  * Created by xff on 2017/1/12.
  */
-public class MediaItem extends MediaBase{
-    long id;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    String name ;
-    long size ;
-    long duration ;
-    String data ;
-    String artist ;
+public class MediaItem extends MediaBase {
+    long duration;
+    String data;
+    String artist;
     String heightUrl;
     String desc;
-    String imageUrl;
-    public String getHeightUrl() {
-        return heightUrl;
-    }
-    public void setHeightUrl(String heightUrl) {
-        this.heightUrl = heightUrl;
-    }
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public long getDuration() {
         return duration;
@@ -51,14 +18,6 @@ public class MediaItem extends MediaBase{
 
     public void setDuration(long duration) {
         this.duration = duration;
-    }
-
-    public long getSize() {
-        return size;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
     }
 
     public String getData() {
@@ -76,38 +35,37 @@ public class MediaItem extends MediaBase{
     public void setArtist(String artist) {
         this.artist = artist;
     }
-    public String getImageUrl() {
-        return imageUrl;
+
+    public String getHeightUrl() {
+        return heightUrl;
     }
-    File imageFile;
-    public void createImageUrlFile(){
-        if(imageUrl!=null)
-        imageFile=new File(imageUrl);
+
+    public void setHeightUrl(String heightUrl) {
+        this.heightUrl = heightUrl;
     }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+
 
     @Override
     public String toString() {
         return "MediaItem{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", size=" + size +
-                ", duration=" + duration +
+                "duration=" + duration +
                 ", data='" + data + '\'' +
                 ", artist='" + artist + '\'' +
                 ", heightUrl='" + heightUrl + '\'' +
                 ", desc='" + desc + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-        createImageUrlFile();
-    }
 
-    public File getImageFile(){
-        return imageFile;
-    }
 
 
 }

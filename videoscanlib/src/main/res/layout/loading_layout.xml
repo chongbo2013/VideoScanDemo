@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/dark_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#96000000"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="52.0dip"
+        android:layout_height="52.0dip"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="48.0dip"
+            android:layout_height="48.0dip"
+            android:indeterminateDrawable="@anim/loading" />
+    </LinearLayout>
+
+
+</merge>
